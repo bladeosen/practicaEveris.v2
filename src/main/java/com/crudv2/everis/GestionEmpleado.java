@@ -24,28 +24,28 @@ public class GestionEmpleado {
   @Autowired
   RepositorioEmpleado repositorioEmpleado;
 
-  // Agregar nuevo empleado
-  @GetMapping("/nuevo")
-  public void CrearEmpleado() {
-
-    Empleado _empleado = new Empleado();
-
-    System.out.print("\nDNI de empleado: ");
-    _empleado.setDni(in.nextLine());
-    System.out.print("\nNombre de empleado: ");
-    _empleado.setNombre(in.nextLine());
-    System.out.print("\nApellidos de empleado: ");
-    _empleado.setApellidos(in.nextLine());
-    System.out.print("\nPosición de empleado: ");
-    _empleado.setPosicion(in.nextLine());
-
-    /*
-     * _empleado.setDni("46791328D"); _empleado.setNombre("Ana"); _empleado.setApellidos("Molina Díaz");
-     * _empleado.setPosicion("Directora Marketing");
-     */
-
-    mongoTemplate.insert(_empleado, "empleados");
-  }
+  // // Agregar nuevo empleado
+  // @GetMapping("/nuevo")
+  // public void CrearEmpleado() {
+  //
+  // Empleado _empleado = new Empleado();
+  //
+  // System.out.print("\nDNI de empleado: ");
+  // _empleado.setDni(in.nextLine());
+  // System.out.print("\nNombre de empleado: ");
+  // _empleado.setNombre(in.nextLine());
+  // System.out.print("\nApellidos de empleado: ");
+  // _empleado.setApellidos(in.nextLine());
+  // System.out.print("\nPosición de empleado: ");
+  // _empleado.setPosicion(in.nextLine());
+  //
+  // /*
+  // * _empleado.setDni("46791328D"); _empleado.setNombre("Ana"); _empleado.setApellidos("Molina Díaz");
+  // * _empleado.setPosicion("Directora Marketing");
+  // */
+  //
+  // mongoTemplate.insert(_empleado, "empleados");
+  // }
 
   // Modifica empleado
   // @GetMapping("/modificar")

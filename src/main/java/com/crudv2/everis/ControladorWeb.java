@@ -32,10 +32,17 @@ public class ControladorWeb {
   public String insertarEmpleadoPost(@ModelAttribute Empleado empleado, Model model, RedirectAttributes redirectAttrs) {
     mongoTemplate.insert(empleado, "empleados");
     redirectAttrs
-        .addFlashAttribute("mensaje", "Agregado correctamente")
+        .addFlashAttribute("mensaje", "Empleado agregado")
         .addFlashAttribute("clase", "success");
     return "redirect:/gestion/empleados";
   }
+
+  // @GetMapping("/pasarela")
+  // public String pasarela(Model model) {
+  // // System.setProperty("java.awt.headless", "false");
+  // // auxiliar = Integer.parseInt(JOptionPane.showInputDialog("Introduce ID del empleado a eliminar:"));
+  // return "pasarela_modificar";
+  // }
 
   @GetMapping("/modificar/{id}")
   public String modificarEmpleado(@PathVariable String id, Model model) {
@@ -47,7 +54,7 @@ public class ControladorWeb {
   public String modificarEmpleadoPost(@ModelAttribute Empleado empleado, RedirectAttributes redirectAttrs) {
     repositorioEmpleado.save(empleado);
     redirectAttrs
-        .addFlashAttribute("mensaje", "Editado correctamente")
+        .addFlashAttribute("mensaje", "Empleado modificado")
         .addFlashAttribute("clase", "success");
     return "redirect:/gestion/empleados";
   }

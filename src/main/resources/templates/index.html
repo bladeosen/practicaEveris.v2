@@ -22,11 +22,11 @@
 </head>
 <body>
 	<center>
-<h1>Bienvenido al gesto de empleados</h1>
+<h1>Bienvenido al Gestor de Empleados</h1>
 <div style="padding-top: 70px;">
 <h2>Selecciona la operación a realizar</h2>
 <a class="boton" th:href="@{/insertar}">Insertar Empleado</a>
-<a class="boton" th:href="@{/modificar}">Modificar Empleados</a>
+<a class="boton" th:href="@{/modificar/*{auxiliar}}">Modificar Empleados</a>
 <a class="boton" th:href="@{/gestion/empleados}">Eliminar Empleados</a>
 <a class="boton" th:href="@{/gestion/empleados}">Listar Empleados</a>
 </div>
