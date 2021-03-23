@@ -9,7 +9,7 @@
 <body>
 <center>
     <h1>Modificación de Empleados</h1>
-<form th:object="${empleado}" th:action="@{/modificar}" method="post" style="border-style: inset; border-width: 30px; width: 200px; height: 186px;">
+<form th:object="${empleado}" th:action="@{/gestion/modificar}" method="post" style="border-style: inset; border-width: 30px; width: 200px; height: 186px;">
     
     <!-- Modificaciones -->
     <div class="form-group">
@@ -38,9 +38,3 @@
 </center>
 </body>
 </html>
-
-<!-- <div class="form-group">
-        <label for="id">Insertar ID a modificar:<br></label>
-        <input th:field="*{id}" id="id" placeholder="Escribe el nombre del Empleado" type="text"
-               class="form-control">
-    </div> -->
