@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.UpdateDefinition;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,7 +49,16 @@ public class GestionEmpleado {
   }
 
   // Modifica empleado
-  // ---------------
+  public List<Empleado> Modificar() {
+    System.out.print("Introduce ID del Empleado a modificar:");
+    String id = in.nextLine();
+    System.out.print("Campo a modificar:");
+    String campo = in.nextLine();
+    UpdateDefinition update = null;
+    Query query = new Query();
+    query.equals(id);
+    return mongoTemplate.findAndModify(query, update, null);
+  }
 
   // Eliminar empleado por DNI
   @GetMapping("/eliminar")
@@ -56,7 +66,7 @@ public class GestionEmpleado {
     System.out.print("Introduce ID a eliminar:");
     String id = in.nextLine();
     Query query = new Query();
-    query.equals(id);
+    query.addCriteria(Criteria.where("id").exists(true));
     mongoTemplate.findAndRemove(query, Empleado.class, "empleado");
   }
 
@@ -75,4 +85,5 @@ public class GestionEmpleado {
   public List<Empleado> EmpleadosTodos() {
     return mongoTemplate.findAll(Empleado.class);
   }
+
 }
