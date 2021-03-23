@@ -1,4 +1,4 @@
-package com.crudv2.everis.gestion;
+package com.crudv2.everis;
 
 import java.util.List;
 import java.util.Scanner;
@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.UpdateDefinition;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +22,7 @@ public class GestionEmpleado {
   private MongoTemplate mongoTemplate;
 
   @Autowired
-  private RepositorioEmpleado repositorioEmpleado;
+  RepositorioEmpleado repositorioEmpleado;
 
   // Agregar nuevo empleado
   @GetMapping("/nuevo")
@@ -49,25 +48,28 @@ public class GestionEmpleado {
   }
 
   // Modifica empleado
-  public List<Empleado> Modificar() {
-    System.out.print("Introduce ID del Empleado a modificar:");
-    String id = in.nextLine();
-    System.out.print("Campo a modificar:");
-    String campo = in.nextLine();
-    UpdateDefinition update = null;
-    Query query = new Query();
-    query.equals(id);
-    return mongoTemplate.findAndModify(query, update, null);
-  }
+  // @GetMapping("/modificar")
+  // public void Modificar() {
+  // System.out.print("Introduce DNI del Empleado a modificar:");
+  // String dni = in.nextLine();
+  // System.out.print("Campo a modificar:");
+  // String campo = in.nextLine();
+  // System.out.print("Introduce el nuevo valor:");
+  // String modificacion = in.nextLine();
+  // Query query = new Query();
+  // query.addCriteria(Criteria.where("dni").is(dni));
+  // Update update = Update.update(campo, modificacion);
+  // mongoTemplate.findAndModify(query, update, Empleado.class, "empleados");
+  // }
 
   // Eliminar empleado por DNI
   @GetMapping("/eliminar")
   public void Eliminar() {
-    System.out.print("Introduce ID a eliminar:");
-    String id = in.nextLine();
+    System.out.print("Introduce dni a eliminar:");
+    String dni = in.nextLine();
     Query query = new Query();
-    query.addCriteria(Criteria.where("id").exists(true));
-    mongoTemplate.findAndRemove(query, Empleado.class, "empleado");
+    query.addCriteria(Criteria.where("dni").is(dni));
+    mongoTemplate.findAndRemove(query, Empleado.class, "empleados");
   }
 
   // Buscar empleado específico por DNI

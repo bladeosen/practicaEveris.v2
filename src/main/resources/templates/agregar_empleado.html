@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestion Empleados</title>
+    <head th:fragment="encabezado" xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="utf-8">
+</head>
+</head>
+<body>
+<center>
+    <h1>Gestión de Empleados</h1>
+<form th:object="${empleado}" th:action="@{/insertar}" method="post" style="border-style: inset; border-width: 30px; width: 200px; height: 186px;">
+    <div class="form-group">
+        <label for="nombre">Nombre:<br></label>
+        <input th:field="*{nombre}" id="nombre" placeholder="Escribe el nombre del Empleado" type="text"
+               class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="codigo">Apellidos:<br></label>
+        <input th:field="*{apellidos}" id="apellidos" placeholder="Escribe los apellidos" type="text"
+               class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="existencia">DNI:<br></label>
+        <input th:field="*{dni}" id="dni" placeholder="Escribe el DNI" type="text"
+               class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="existencia">Posición:<br></label>
+        <input th:field="*{posicion}" id="posicion" placeholder="Escribe su posición" type="text"
+               class="form-control">
+    </div>
+    <button class="btn btn-success" type="submit">Guardar</button>
+    &nbsp;<a class="btn btn-warning" th:href="@{index.html}">Volver</a>
+</form>
+</center>
+</body>
+</html>

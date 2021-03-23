@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gestor De Empleados</title>
+	<style type="text/css">
+  .boton{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+  }
+  .boton:hover{
+    color: #1883ba;
+    background-color: #ffffff;
+  }
+</style>
+</style>
+</head>
+<body>
+	<center>
+<h1>Bienvenido al gesto de empleados</h1>
+<div style="padding-top: 70px;">
+<h2>Selecciona la operación a realizar</h2>
+<a class="boton" th:href="@{/insertar}">Insertar Empleado</a>
+<a class="boton" th:href="@{/modificar}">Modificar Empleados</a>
+<a class="boton" th:href="@{/gestion/empleados}">Eliminar Empleados</a>
+<a class="boton" th:href="@{/gestion/empleados}">Listar Empleados</a>
+</div>
+</center>
+</body>
+</html>
