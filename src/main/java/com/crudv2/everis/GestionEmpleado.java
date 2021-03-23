@@ -63,14 +63,14 @@ public class GestionEmpleado {
   // }
 
   // Eliminar empleado por DNI
-  @GetMapping("/eliminar")
-  public void Eliminar() {
-    System.out.print("Introduce dni a eliminar:");
-    String dni = in.nextLine();
-    Query query = new Query();
-    query.addCriteria(Criteria.where("dni").is(dni));
-    mongoTemplate.findAndRemove(query, Empleado.class, "empleados");
-  }
+  // @GetMapping("/eliminar")
+  // public void Eliminar() {
+  // System.out.print("Introduce dni a eliminar:");
+  // String dni = in.nextLine();
+  // Query query = new Query();
+  // query.addCriteria(Criteria.where("dni").is(dni));
+  // mongoTemplate.findAndRemove(query, Empleado.class, "empleados");
+  // }
 
   // Buscar empleado específico por DNI
   @GetMapping("/empleado")

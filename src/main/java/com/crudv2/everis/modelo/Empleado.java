@@ -9,8 +9,6 @@ public class Empleado {
   @Id
   private String id;
 
-  private String auxiliar;
-
   private String dni;
 
   private String nombre;
@@ -68,14 +66,6 @@ public class Empleado {
 
   public void setPosicion(String posicion) {
     this.posicion = posicion;
-  }
-
-  public String getAuxiliar() {
-    return auxiliar;
-  }
-
-  public void setAuxiliar(String auxiliar) {
-    this.auxiliar = auxiliar;
   }
 
   @Override
